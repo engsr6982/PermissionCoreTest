@@ -1,7 +1,9 @@
 #include "entry.h"
 
+#include "Test/Global.h"
 #include <ll/api/plugin/NativePlugin.h>
 #include <memory>
+
 
 namespace entry {
 
@@ -36,15 +38,14 @@ bool entry::load(ll::plugin::NativePlugin& self) {
     return true;
 }
 
-#include "Test/Global.h"
 bool entry::enable() {
     getSelf().getLogger().info("enabling...");
 
     // Code for enabling the plugin goes here.
-    testRegisterPermissionCoreToManager();
-    testManagerGetPermissionCore();
-    testPermissionCore();
-    testRegisterPermission();
+    test::testRegisterPermissionCoreToManager();
+    test::testManagerGetPermissionCore();
+    test::testPermissionCore();
+    test::testRegisterPermission();
 
     return true;
 }

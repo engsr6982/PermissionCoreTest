@@ -1,9 +1,12 @@
 #include "Global.h"
+#include <Entry/Macros.h>
 #include <PermissionCore/PermissionCore.h>
 #include <PermissionCore/PermissionManager.h>
 #include <cassert>
 #include <iostream>
 #include <memory>
+
+namespace test {
 
 void testRegisterPermissionCoreToManager() {
     using namespace perm;
@@ -83,3 +86,4 @@ void testPermissionCore() {
         assert(core->checkUserPermission("admin1", "permission1", true, true) == true);
     }
 }
+} // namespace test
