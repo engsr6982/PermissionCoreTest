@@ -36,10 +36,15 @@ bool entry::load(ll::plugin::NativePlugin& self) {
     return true;
 }
 
+#include "Test/Global.h"
 bool entry::enable() {
     getSelf().getLogger().info("enabling...");
 
     // Code for enabling the plugin goes here.
+    testRegisterPermissionCoreToManager();
+    testManagerGetPermissionCore();
+    testPermissionCore();
+    testRegisterPermission();
 
     return true;
 }
