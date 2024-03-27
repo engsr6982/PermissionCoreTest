@@ -2,11 +2,9 @@ add_rules("mode.debug", "mode.release")
 
 add_repositories("liteldev-repo https://github.com/LiteLDev/xmake-repo.git")
 
--- add_requires("levilamina x.x.x") for a specific version
-add_requires(
-    "levilamina 0.9.4",
-    "PermissionCore 0.2.0" -- 添加 PermissionCore 包
-)
+add_requires("levilamina 0.9.4")
+add_requires("PermissionCore") -- 添加 PermissionCore 包依赖
+
 
 if not has_config("vs_runtime") then
     set_runtimes("MD")
@@ -15,27 +13,24 @@ end
 -- 描述 PermissionCore 包
 package("PermissionCore")
     set_urls("https://github.com/engsr6982/PermissionCore/releases/download/v0.2.0/SDK-PermissionCore.zip")
+    add_versions("v0.2.0", "bc5051daa8ae9c14e04e4403db40737eeec34ba0e330ecc04c9e46b6a268c6d2")
     add_includedirs("include/")
-    -- add_links("lib/PermissionCore")
-    add_linkdirs("lib/")
-    -- on_load(function (package)
-    --     package:add("links", "lib/PermissionCore")
-    -- end)
     on_install(function (package)
         os.cp("*", package:installdir())
     end)
 
-target("PermissionCoreTest") -- Change this to your plugin name.
+
+target("PermissionCoreTest")
     add_cxflags("/EHa", "/utf-8")
     add_defines("NOMINMAX", "UNICODE")
     add_files("src/**.cpp")
     add_includedirs("src")
     add_packages(
-        "levilamina", 
+        "levilamina",
         "PermissionCore" -- 添加 PermissionCore 包
     )
-    add_shflags("/DELAYLOAD:bedrock_server.dll") -- To use symbols provided by SymbolProvider.
-    set_exceptions("none") -- To avoid conflicts with /EHa.
+    add_shflags("/DELAYLOAD:bedrock_server.dll")
+    set_exceptions("none")
     set_kind("shared")
     set_languages("c++20")
     set_symbols("debug")
