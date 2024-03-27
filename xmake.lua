@@ -10,10 +10,11 @@ if not has_config("vs_runtime") then
     set_runtimes("MD")
 end
 
+
 -- 描述 PermissionCore 包
 package("PermissionCore")
-    set_urls("https://github.com/engsr6982/PermissionCore/releases/download/v0.2.0/SDK-PermissionCore.zip")
-    add_versions("v0.2.0", "bc5051daa8ae9c14e04e4403db40737eeec34ba0e330ecc04c9e46b6a268c6d2")
+    set_urls("https://github.com/engsr6982/PermissionCore/releases/download/$(version)/SDK-PermissionCore.zip")
+    add_versions("v0.2.1", "e99acd90fcb95a120917cd6fcc3a2fec5747da3acb5da0abdb27aa66e8ef58c6")
     add_includedirs("include/")
     on_install(function (package)
         os.cp("*", package:installdir())
