@@ -2,12 +2,14 @@
 
 namespace test {
 
-void testRegisterPermissionCoreToManager();
+#define NAME "test"
 
-void testManagerGetPermissionCore();
+enum pm { t1, t2, t3 };
 
-void testPermissionCore();
+void testManager();
 
-void testRegisterPermission();
+void testCore();
+
+void testRegister();
 
 } // namespace test

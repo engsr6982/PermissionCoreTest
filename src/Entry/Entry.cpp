@@ -42,10 +42,9 @@ bool entry::enable() {
     getSelf().getLogger().info("enabling...");
 
     // Code for enabling the plugin goes here.
-    test::testRegisterPermissionCoreToManager();
-    test::testManagerGetPermissionCore();
-    test::testPermissionCore();
-    test::testRegisterPermission();
+    test::testManager();
+    test::testCore();
+    test::testRegister();
 
     return true;
 }
