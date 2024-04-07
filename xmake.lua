@@ -2,7 +2,7 @@ add_rules("mode.debug", "mode.release")
 
 add_repositories("liteldev-repo https://github.com/LiteLDev/xmake-repo.git")
 
-add_requires("levilamina 0.9.4")
+add_requires("levilamina 0.10.5")
 add_requires("PermissionCore") -- 添加 PermissionCore 包依赖
 
 
