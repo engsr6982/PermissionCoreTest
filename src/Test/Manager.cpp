@@ -14,9 +14,9 @@ void testManager() {
 
     auto permCore = std::make_shared<PermissionCore>(NAME);
 
-    assert(manager.registerPermissionCore(NAME, permCore) == true);
+    falseThrow(manager.registerPermissionCore(NAME, permCore) == true);
 
-    assert(manager.getPermissionCore(NAME) != nullptr);
+    falseThrow(manager.getPermissionCore(NAME) != nullptr);
 
     std::cout << "PermissionManager Success" << std::endl;
 }
